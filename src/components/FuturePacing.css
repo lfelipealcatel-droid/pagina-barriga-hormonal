@@ -1,0 +1,33 @@
+.future {
+  background: var(--white);
+  padding: var(--sv) var(--sh);
+}
+
+.future__container {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.future__text {
+  font-size: 15px;
+  line-height: 1.72;
+  color: #444;
+  margin-bottom: 14px;
+}
+.future__text:last-child { margin-bottom: 0; }
+
+.future__text--lead {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.future__text strong { color: var(--orange); font-weight: 800; }
+
+@media (min-width: 768px) {
+  .future__text       { font-size: 16px; }
+  .future__text--lead { font-size: 26px; }
+}

@@ -1,0 +1,210 @@
+.mockups {
+  background: var(--beige);
+  padding: var(--sv) 0;
+  overflow: hidden;
+}
+
+.mockups__head {
+  padding: 0 var(--sh) 14px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mockups__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.5;
+}
+
+/* ── Viewport (overflow hidden, touch-action via inline) ── */
+.mockups__vp {
+  overflow: hidden;
+  padding: 18px 0 14px;
+  touch-action: pan-y;  /* permite scroll vertical, captura swipe horizontal */
+  user-select: none;
+  cursor: grab;
+}
+.mockups__vp:active { cursor: grabbing; }
+
+/* ── Track flexível, largura/posição via inline ── */
+.mockups__track {
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+/* ── Slide (largura + transforms via inline) ── */
+.mockups__slide { flex: 0 0 auto; }
+
+/* ══════════════════════════════════════════════
+   MOLDURA DE CELULAR — estilo iPhone (bege/natural)
+   ══════════════════════════════════════════════ */
+
+.mockups__phone {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+
+  /* corpo bege — Natural Titanium / Sand */
+  background: linear-gradient(175deg, #ece3d5 0%, #dfd0bc 100%);
+  border-radius: 28px;
+
+  /* sombra com profundidade + highlight de borda superior */
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.22),
+    0 0 0 0.5px rgba(0,0,0,0.10),
+    inset 0 1.5px 0 rgba(255,255,255,0.70),
+    inset 0 -1.5px 0 rgba(0,0,0,0.08);
+
+  /* layout interno: island + tela + home bar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 9px 6px 8px;
+  gap: 0;
+  position: relative;
+  overflow: visible;  /* permite que botões laterais apareçam */
+}
+
+/* botões de volume (lado esquerdo) */
+.mockups__phone::before {
+  content: '';
+  position: absolute;
+  left: -2.5px;
+  top: 26%;
+  width: 2.5px;
+  height: 14px;
+  background: #c4b49e;
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 18px 0 #c4b49e, 0 -18px 0 #c4b49e;
+}
+
+/* botão de energia (lado direito) */
+.mockups__phone::after {
+  content: '';
+  position: absolute;
+  right: -2.5px;
+  top: 32%;
+  width: 2.5px;
+  height: 18px;
+  background: #c4b49e;
+  border-radius: 0 2px 2px 0;
+}
+
+/* dynamic island — pílula preta no topo */
+.mockups__island {
+  width: 48px;
+  height: 5px;
+  background: #0d0d0d;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-bottom: 5px;
+}
+
+/* área da tela com bordas arredondadas */
+.mockups__screen {
+  flex: 1;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f5f5f5;
+  position: relative;
+  /* sutil borda interna simulando o bisel da tela */
+  box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.10);
+}
+
+.mockups__screen-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* barra home (home indicator) */
+.mockups__home {
+  width: 38px;
+  height: 4px;
+  background: rgba(0,0,0,0.22);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* rótulo abaixo de cada celular */
+.mockups__label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-light);
+  margin-top: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+}
+
+/* ── Dots ── */
+.mockups__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 0 16px;
+}
+
+.mockups__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cfc8c0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s;
+}
+
+.mockups__dot--on {
+  background: var(--orange);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ── Bullets ── */
+.mockups__body {
+  padding: 0 var(--sh);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.mockups__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mockups__bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--black);
+}
+
+.mockups__footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-light);
+}
+
+/* ── Desktop ── */
+@media (min-width: 768px) {
+  .mockups__title { font-size: 17px; }
+  .mockups__vp    { padding: 22px 0 18px; }
+}

@@ -1,0 +1,58 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --orange:      #F37021;
+  --orange-dark: #d95e10;
+  --black:       #1A1A1A;
+  --beige:       #FAF7F2;
+  --white:       #FFFFFF;
+  --gray:        #6B6B6B;
+  --gray-light:  #9E9E9E;
+  --green:       #2E7D32;
+
+  --shadow-sm:  0 2px 8px  rgba(0,0,0,0.07);
+  --shadow-md:  0 3px 14px rgba(0,0,0,0.09);
+  --shadow-lg:  0 6px 24px rgba(0,0,0,0.13);
+  --shadow-cta: 0 6px 22px rgba(243,112,33,0.38);
+
+  --radius-sm: 10px;
+  --radius:    16px;
+  --radius-lg: 20px;
+
+  /* espaçamento compacto, mobile-first */
+  --sv: 32px;   /* section vertical */
+  --sh: 18px;   /* section horizontal */
+  --max-w: 660px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+#root { width: 100%; min-height: 100vh; }
+
+img  { max-width: 100%; display: block; }
+a    { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; border: none; outline: none; }
+
+@keyframes pulse-ring {
+  0%,100% { box-shadow: var(--shadow-cta); }
+  50%      { box-shadow: 0 8px 30px rgba(243,112,33,0.58); }
+}
+
+/* ── desktop: mais respiro ── */
+@media (min-width: 768px) {
+  :root { --sv: 52px; --sh: 24px; }
+}

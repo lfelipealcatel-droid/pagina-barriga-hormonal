@@ -1,0 +1,51 @@
+.garantia {
+  background: var(--white);
+  padding: var(--sv) var(--sh);
+}
+
+.garantia__container {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.garantia__card {
+  border: 2px solid #2E7D32;
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  text-align: center;
+  background: linear-gradient(160deg, #f4fff4 0%, #e8f5e8 100%);
+  box-shadow: 0 6px 24px rgba(46,125,50,0.12);
+}
+
+.garantia__icon {
+  font-size: 44px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.garantia__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.garantia__text {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.garantia__tagline {
+  font-size: 15px;
+  font-weight: 800;
+  color: #2E7D32;
+}
+
+@media (min-width: 768px) {
+  .garantia__title { font-size: 20px; }
+  .garantia__card  { padding: 36px 32px; }
+  .garantia__text  { font-size: 15px; }
+}

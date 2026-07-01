@@ -1,0 +1,98 @@
+.bonus {
+  background: var(--white);
+  padding: var(--sv) var(--sh);
+}
+
+.bonus__container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.bonus__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.bonus__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bonus__card {
+  background: var(--beige);
+  border-radius: var(--radius);
+  padding: 16px 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #ede4d8;
+}
+
+.bonus__card-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.bonus__badge {
+  background: var(--orange);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+.bonus__num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-light);
+}
+
+.bonus__card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.bonus__card-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.bonus__card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bonus__valor-riscado {
+  font-size: 13px;
+  color: #bbb;
+  text-decoration: line-through;
+}
+
+.bonus__incluso {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+@media (min-width: 620px) {
+  .bonus__grid  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+
+@media (min-width: 768px) {
+  .bonus__title { font-size: 19px; }
+  .bonus__card  { padding: 20px 18px; }
+}
