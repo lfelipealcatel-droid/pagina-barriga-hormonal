@@ -20,7 +20,7 @@ const items = [
   },
   {
     q: 'Como recebo o acesso?',
-    a: 'Imediatamente após a compra, direto no seu celular. Sem espera.',
+    a: 'Assim que a compra é confirmada, você recebe um link e uma senha no seu e-mail para acessar tudo imediatamente pelo celular, tablet ou computador. Sem espera e sem app para baixar.',
   },
   {
     q: 'E se eu tiver mais de 50 ou 60 anos?',
