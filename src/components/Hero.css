@@ -2,12 +2,16 @@
    mobile (wrap 2 linhas) ≈ 70px | 600px+ (1 linha) ≈ 44px */
 .hero {
   background: var(--beige);
-  padding: calc(70px + var(--sv)) var(--sh) var(--sv);
+  padding: calc(70px + var(--sv)) var(--sh) 20px;
   text-align: center;
 }
 
 @media (min-width: 600px) {
   .hero { padding-top: calc(44px + var(--sv)); }
+}
+
+@media (min-width: 768px) {
+  .hero { padding-bottom: 32px; }
 }
 
 .hero__container {
