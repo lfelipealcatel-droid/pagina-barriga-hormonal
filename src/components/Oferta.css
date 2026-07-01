@@ -9,7 +9,7 @@
 }
 
 .oferta__title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--black);
   margin-bottom: 16px;
@@ -30,7 +30,7 @@
   align-items: center;
   padding: 11px 16px;
   border-bottom: 1px solid #f5ede4;
-  font-size: 13px;
+  font-size: 14px;
   gap: 12px;
 }
 .oferta__row:last-child { border-bottom: none; }
@@ -42,13 +42,13 @@
   color: #bbb;
   white-space: nowrap;
   text-decoration: line-through;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .oferta__row--total {
   background: #fff5ee;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .oferta__total-riscado {
@@ -57,7 +57,6 @@
   font-weight: 700;
 }
 
-/* card de preço elevado, colado à tabela */
 .oferta__price-card {
   background: var(--white);
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
@@ -69,7 +68,7 @@
 }
 
 .oferta__label {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--gray);
   margin-bottom: 8px;
 }
@@ -83,7 +82,7 @@
 }
 
 .oferta__price {
-  font-size: 46px;
+  font-size: 51px;
   font-weight: 900;
   color: var(--orange);
   line-height: 1;
@@ -91,18 +90,18 @@
 }
 
 .oferta__installment {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--gray-light);
 }
 
 .oferta__seals {
   margin-top: 14px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--gray-light);
   line-height: 1.6;
 }
 
 @media (min-width: 768px) {
-  .oferta__title { font-size: 20px; }
-  .oferta__price { font-size: 54px; }
+  .oferta__title { font-size: 22px; }
+  .oferta__price { font-size: 59px; }
 }

@@ -9,7 +9,7 @@
 }
 
 .provas__title {
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--black);
   text-align: center;
@@ -60,7 +60,7 @@
   display: inline-block;
   background: var(--orange);
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 900;
   padding: 3px 14px;
   border-radius: 50px;
@@ -70,7 +70,7 @@
 }
 
 .provas__texto {
-  font-size: 13px;
+  font-size: 14px;
   color: #444;
   line-height: 1.6;
   margin-bottom: 8px;
@@ -78,14 +78,14 @@
 }
 
 .provas__autor {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--gray-light);
   font-weight: 600;
 }
 
 .provas__footer {
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--gray);
   font-weight: 700;
 }
@@ -95,7 +95,7 @@
 }
 
 @media (min-width: 768px) {
-  .provas__title  { font-size: 19px; }
+  .provas__title  { font-size: 21px; }
   .provas__card   { padding: 18px; }
-  .provas__texto  { font-size: 14px; }
+  .provas__texto  { font-size: 15px; }
 }

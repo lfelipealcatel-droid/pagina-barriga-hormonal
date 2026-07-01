@@ -12,7 +12,7 @@
 }
 
 .mockups__title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--black);
   line-height: 1.5;
@@ -136,7 +136,7 @@
 /* rótulo abaixo de cada celular */
 .mockups__label {
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--gray-light);
   margin-top: 9px;
@@ -192,19 +192,19 @@
   border-radius: var(--radius-sm);
   padding: 11px 14px;
   box-shadow: var(--shadow-sm);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.4;
   color: var(--black);
 }
 
 .mockups__footer {
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--gray-light);
 }
 
 /* ── Desktop ── */
 @media (min-width: 768px) {
-  .mockups__title { font-size: 17px; }
+  .mockups__title { font-size: 19px; }
   .mockups__vp    { padding: 22px 0 18px; }
 }

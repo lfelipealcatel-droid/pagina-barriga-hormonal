@@ -6,7 +6,7 @@
   text-align: center;
   padding: 17px 24px;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 0.3px;
   line-height: 1.2;
@@ -33,5 +33,5 @@
 }
 
 @media (min-width: 768px) {
-  .cta-btn { font-size: 17px; padding: 18px 28px; }
+  .cta-btn { font-size: 19px; padding: 18px 28px; }
 }

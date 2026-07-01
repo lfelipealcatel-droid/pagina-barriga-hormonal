@@ -18,13 +18,13 @@
 }
 
 .garantia__icon {
-  font-size: 44px;
+  font-size: 48px;
   margin-bottom: 10px;
   display: block;
 }
 
 .garantia__title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--black);
   margin-bottom: 12px;
@@ -32,20 +32,20 @@
 }
 
 .garantia__text {
-  font-size: 14px;
+  font-size: 15px;
   color: #444;
   line-height: 1.7;
   margin-bottom: 12px;
 }
 
 .garantia__tagline {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
   color: #2E7D32;
 }
 
 @media (min-width: 768px) {
-  .garantia__title { font-size: 20px; }
+  .garantia__title { font-size: 22px; }
   .garantia__card  { padding: 36px 32px; }
-  .garantia__text  { font-size: 15px; }
+  .garantia__text  { font-size: 17px; }
 }

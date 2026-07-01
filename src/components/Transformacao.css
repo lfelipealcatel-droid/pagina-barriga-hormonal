@@ -8,9 +8,8 @@
   margin: 0 auto;
 }
 
-/* Título */
 .transf__title {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   text-align: center;
   color: var(--gray-light);
@@ -19,7 +18,6 @@
   margin-bottom: 14px;
 }
 
-/* ═══ BIG CARD BEGE ═══ */
 .transf__card {
   background: #F2EBE3;
   border-radius: 20px;
@@ -31,7 +29,6 @@
   margin-bottom: 12px;
 }
 
-/* ── Barra de rótulos ── */
 .transf__labels {
   background: #fff;
   border-radius: 50px;
@@ -45,7 +42,7 @@
 .transf__label {
   flex: 1;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   color: #999;
   font-weight: 500;
   letter-spacing: 0.2px;
@@ -58,7 +55,6 @@
   flex-shrink: 0;
 }
 
-/* ── Imagem ── */
 .transf__img-wrap {
   border-radius: 12px;
   overflow: hidden;
@@ -75,7 +71,6 @@
   object-fit: cover;
 }
 
-/* ── Card de dados ── */
 .transf__data {
   background: #fff;
   border-radius: 14px;
@@ -105,7 +100,7 @@
 }
 
 .transf__item-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--gray-light);
   text-transform: uppercase;
@@ -113,26 +108,24 @@
   margin-bottom: 3px;
 }
 
-/* rótulo da coluna "objetivo" em laranja */
 .transf__item-label--goal {
   color: var(--orange);
 }
 
 .transf__item-value {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--black);
   line-height: 1.25;
 }
 
-/* ── Faixa de destaque ── */
 .transf__highlight {
   background: #fff8f1;
   border: 1.5px solid var(--orange);
   border-radius: var(--radius);
   padding: 12px 16px;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--black);
   box-shadow: 0 2px 12px rgba(243,112,33,0.10);
 }
@@ -140,20 +133,19 @@
 .transf__highlight strong {
   color: var(--orange);
   font-weight: 900;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-/* ═══ Desktop ═══ */
 @media (min-width: 768px) {
-  .transf__title        { font-size: 13px; }
+  .transf__title        { font-size: 14px; }
   .transf__card         { padding: 14px; gap: 12px; border-radius: 24px; }
   .transf__labels       { height: 44px; border-radius: 50px; }
-  .transf__label        { font-size: 15px; }
+  .transf__label        { font-size: 17px; }
   .transf__img-wrap     { border-radius: 14px; min-height: 200px; }
   .transf__data         { border-radius: 16px; }
   .transf__item         { padding: 14px 20px; }
-  .transf__item-label   { font-size: 11px; }
-  .transf__item-value   { font-size: 15px; }
-  .transf__highlight    { padding: 16px 20px; font-size: 15px; }
-  .transf__highlight strong { font-size: 18px; }
+  .transf__item-label   { font-size: 12px; }
+  .transf__item-value   { font-size: 17px; }
+  .transf__highlight    { padding: 16px 20px; font-size: 17px; }
+  .transf__highlight strong { font-size: 20px; }
 }

@@ -22,7 +22,7 @@
 }
 
 .cta-final__copy {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
   line-height: 1.35;
@@ -30,7 +30,7 @@
 }
 
 .cta-final__copy--sub {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   color: #aaa;
   margin-bottom: 22px;
@@ -45,7 +45,7 @@
 }
 
 .cta-final__price {
-  font-size: 46px;
+  font-size: 51px;
   font-weight: 900;
   color: var(--orange);
   line-height: 1;
@@ -53,18 +53,18 @@
 }
 
 .cta-final__installment {
-  font-size: 13px;
+  font-size: 14px;
   color: #888;
 }
 
 .cta-final__seals {
   margin-top: 16px;
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
   line-height: 1.7;
 }
 
 @media (min-width: 768px) {
-  .cta-final__copy  { font-size: 22px; }
-  .cta-final__price { font-size: 54px; }
+  .cta-final__copy  { font-size: 24px; }
+  .cta-final__price { font-size: 59px; }
 }

@@ -19,13 +19,13 @@
 
 .sticky-header__text {
   color: #ddd;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .sticky-header__timer {
   color: var(--orange);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 1.5px;
   font-variant-numeric: tabular-nums;
@@ -36,7 +36,7 @@
   background: var(--orange);
   color: #fff;
   font-weight: 800;
-  font-size: 12px;
+  font-size: 13px;
   padding: 7px 16px;
   border-radius: 50px;
   white-space: nowrap;
@@ -50,6 +50,6 @@
 }
 
 @media (max-width: 400px) {
-  .sticky-header__text { font-size: 11px; }
-  .sticky-header__btn  { font-size: 11px; padding: 6px 12px; }
+  .sticky-header__text { font-size: 12px; }
+  .sticky-header__btn  { font-size: 12px; padding: 6px 12px; }
 }

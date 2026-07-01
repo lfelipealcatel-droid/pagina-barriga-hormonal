@@ -10,7 +10,7 @@
 }
 
 .future__text {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.72;
   color: #444;
   margin-bottom: 14px;
@@ -18,7 +18,7 @@
 .future__text:last-child { margin-bottom: 0; }
 
 .future__text--lead {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--black);
   margin-bottom: 16px;
@@ -28,6 +28,6 @@
 .future__text strong { color: var(--orange); font-weight: 800; }
 
 @media (min-width: 768px) {
-  .future__text       { font-size: 16px; }
-  .future__text--lead { font-size: 26px; }
+  .future__text       { font-size: 18px; }
+  .future__text--lead { font-size: 29px; }
 }

@@ -14,7 +14,7 @@
 }
 
 .causa__text {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.70;
   color: #333;
   margin-bottom: 12px;
@@ -24,5 +24,5 @@
 
 @media (min-width: 768px) {
   .causa__container { padding: 28px 32px; }
-  .causa__text      { font-size: 16px; }
+  .causa__text      { font-size: 18px; }
 }
