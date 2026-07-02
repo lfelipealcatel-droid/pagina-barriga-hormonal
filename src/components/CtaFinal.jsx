@@ -1,16 +1,12 @@
 import CtaBtn from './CtaBtn'
 import './CtaFinal.css'
 
-// ─── DADOS DINÂMICOS — fácil de editar ───────────────────────────────────────
-const USER_NAME = 'Maria'    // ← nome da usuária (vira dinâmico depois)
-// ─────────────────────────────────────────────────────────────────────────────
-
-export default function CtaFinal() {
+export default function CtaFinal({ nome = '' }) {
   return (
     <section className="cta-final">
       <div className="cta-final__container">
         <p className="cta-final__copy">
-          {USER_NAME}, esse é o caminho que seu corpo está esperando há meses.
+          {nome ? `${nome}, esse` : 'Esse'} é o caminho que seu corpo está esperando há meses.
         </p>
         <p className="cta-final__copy cta-final__copy--sub">
           Você já descobriu a causa. Agora é só começar.

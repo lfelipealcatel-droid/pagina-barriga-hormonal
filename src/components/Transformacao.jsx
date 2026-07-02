@@ -1,9 +1,5 @@
 import './Transformacao.css'
 
-// ─── DADOS DINÂMICOS — fácil de editar ───────────────────────────────────────
-const CM_PROJECTION = '5 a 7'   // ← vira dinâmico depois
-// ─────────────────────────────────────────────────────────────────────────────
-
 const dadosAgora = [
   { label: 'Barriga',     valor: 'Inchada e hormonal' },
   { label: 'Metabolismo', valor: 'Travado'             },
@@ -16,7 +12,7 @@ const dadosObjetivo = [
   { label: 'Energia',     valor: 'Restaurada'          },
 ]
 
-export default function Transformacao() {
+export default function Transformacao({ cmProjection = '5 a 7' }) {
   return (
     <section className="transf">
       <div className="transf__outer">
@@ -76,7 +72,7 @@ export default function Transformacao() {
 
         {/* faixa de destaque */}
         <div className="transf__highlight">
-          ✨ Seu potencial: <strong>-{CM_PROJECTION} cm de barriga</strong> em 21 dias
+          ✨ Seu potencial: <strong>-{cmProjection} cm de barriga</strong> em 21 dias
         </div>
       </div>
     </section>

@@ -14,12 +14,22 @@ import FAQ           from './components/FAQ'
 import CtaFinal      from './components/CtaFinal'
 
 export default function App() {
+  // Lê os parâmetros da URL uma única vez (não mudam durante a sessão)
+  const params       = new URLSearchParams(window.location.search)
+  const nome         = params.get('nome')?.trim() || ''
+  const cmMin        = params.get('cm_min')
+  const cmMax        = params.get('cm_max')
+  const cmProjection =
+    cmMin && cmMax && !isNaN(Number(cmMin)) && !isNaN(Number(cmMax))
+      ? `${cmMin} a ${cmMax}`
+      : '5 a 7'
+
   return (
     <>
       <StickyHeader />
       <main>
-        <Hero />
-        <Transformacao />
+        <Hero nome={nome} />
+        <Transformacao cmProjection={cmProjection} />
         <Mockups />
         <Causa />
         <Pilares />
@@ -29,7 +39,7 @@ export default function App() {
         <ProvasSociais />
         <Garantia />
         <FAQ />
-        <CtaFinal />
+        <CtaFinal nome={nome} />
       </main>
     </>
   )
