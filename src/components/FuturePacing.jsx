@@ -6,7 +6,7 @@ export default function FuturePacing() {
       <div className="future__container">
         <p className="future__text future__text--lead">Imagina daqui a 21 dias.</p>
         <p className="future__text">
-          A calça que estava guardada no fundo do armário <strong>voltando a fechar</strong>. A barriga que não aparece mais por baixo da blusa. A foto em que você <strong>finalmente gosta de se ver</strong>.
+          A calça que estava guardada no fundo do armário <strong>voltando a fechar</strong>. A barriga que não aparece mais por baixo da blusa. A foto em que você finalmente gosta de se ver.
         </p>
         <p className="future__text">
           E a sensação de que <strong>seu corpo voltou a responder</strong>.
