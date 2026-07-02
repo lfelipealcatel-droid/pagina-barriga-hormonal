@@ -31,7 +31,6 @@ export default function ProvasSociais() {
           {depoimentos.map((d, i) => (
             <div className="provas__card" key={i}>
 
-              {/* foto quadrada 1:1 com selo sobreposto */}
               <div className="provas__photo-wrap">
                 <div className="provas__photo-clip">
                   <img
@@ -40,6 +39,10 @@ export default function ProvasSociais() {
                     className="provas__photo"
                   />
                 </div>
+              </div>
+
+              {/* selo centralizado, puxado para cima com margin negativa */}
+              <div className="provas__seal-row">
                 <div className="provas__seal">
                   <span className="provas__seal-num">{d.sealNum}</span>
                   <span className="provas__seal-sub">de barriga</span>

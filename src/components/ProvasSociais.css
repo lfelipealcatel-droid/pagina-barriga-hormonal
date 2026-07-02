@@ -35,16 +35,14 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   position: relative;
-  margin-bottom: 26px; /* espaço para o selo que ultrapassa a borda inferior */
-}
-
-/* camada de clip da imagem, preenchendo o photo-wrap */
-.provas__photo-clip {
-  position: absolute;
-  inset: 0;
   border-radius: var(--radius-sm);
   overflow: hidden;
   background: #e8e0d5;
+}
+
+.provas__photo-clip {
+  width: 100%;
+  height: 100%;
 }
 
 .provas__photo {
@@ -54,19 +52,25 @@
   display: block;
 }
 
+/* ── Linha do selo: centraliza e puxa para cima sobrepondo a foto ── */
+.provas__seal-row {
+  display: flex;
+  justify-content: center;
+  margin-top: -18px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
 /* ── Selo laranja com número grande + subtexto ── */
 .provas__seal {
-  position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
   background: var(--orange);
   color: #fff;
   border-radius: 50px;
-  padding: 5px 14px 6px;
+  padding: 5px 16px 6px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   line-height: 1.1;
   box-shadow: 0 4px 14px rgba(243,112,33,0.38);
 }
