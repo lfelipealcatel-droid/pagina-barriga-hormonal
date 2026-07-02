@@ -17,14 +17,19 @@ const bullets = [
   'Sua evolução dia a dia — acompanhe a barriga reduzindo',
 ]
 
-const GAP   = 13   // px entre slides
-const SPEED = 3200 // ms por slide
+const GAP   = 13
+const SPEED = 3200
+const N     = screens.length
+
+// Track estendido: [clone-do-último, ...slides-reais, clone-do-primeiro]
+// Índices reais: 1..N | índice 0 = clone do último | índice N+1 = clone do primeiro
+const ext = [screens[N - 1], ...screens, screens[0]]
 
 export default function Mockups() {
-  const [active,  setActive]  = useState(0)
-  const [cW,      setCW]      = useState(375)   // container width
-  const [drag,    setDrag]    = useState(0)      // px de drag atual
-  const [trans,   setTrans]   = useState(true)   // transições ativas
+  const [active, setActive] = useState(1)   // começa no primeiro slide real (ext[1])
+  const [cW,     setCW]     = useState(375)
+  const [drag,   setDrag]   = useState(0)
+  const [trans,  setTrans]  = useState(true)
 
   const vpRef    = useRef(null)
   const timer    = useRef(null)
@@ -33,24 +38,41 @@ export default function Mockups() {
   const curDrag  = useRef(0)
   const wasDrag  = useRef(false)
 
-  const N  = screens.length
-  // largura responsiva do slide: 41% da tela, entre 138 e 172 px
-  const SW = Math.min(Math.max(cW * 0.47, 159), 198)
-  // offset do track para centralizar o slide ativo
+  const SW     = Math.min(Math.max(cW * 0.47, 159), 198)
   const trackX = (cW - SW) / 2 - active * (SW + GAP) + drag
 
-  // ── Auto-play ──────────────────────────────────────────────────────────────
+  // ── Auto-play (sempre para a direita) ─────────────────────────────────────
   const play = useCallback(() => {
     clearInterval(timer.current)
     timer.current = setInterval(() => {
       setTrans(true)
-      setActive(p => (p + 1) % N)
+      setActive(p => Math.min(p + 1, N + 1))
     }, SPEED)
-  }, [N])
+  }, [])
 
   useEffect(() => { play(); return () => clearInterval(timer.current) }, [play])
 
-  // ── Mede o container com ResizeObserver ────────────────────────────────────
+  // ── Pulo silencioso ao pousar num clone ───────────────────────────────────
+  // Aguarda a transição terminar (460ms) e troca para o slide real equivalente
+  // sem animação — como os slides são idênticos, o salto é invisível.
+  useEffect(() => {
+    if (active === 0) {
+      const t = setTimeout(() => {
+        setTrans(false)
+        setActive(N)      // clone do último → real último
+      }, 460)
+      return () => clearTimeout(t)
+    }
+    if (active === N + 1) {
+      const t = setTimeout(() => {
+        setTrans(false)
+        setActive(1)      // clone do primeiro → real primeiro
+      }, 460)
+      return () => clearTimeout(t)
+    }
+  }, [active])
+
+  // ── ResizeObserver ─────────────────────────────────────────────────────────
   useEffect(() => {
     const el = vpRef.current
     if (!el) return
@@ -60,12 +82,11 @@ export default function Mockups() {
     return () => ro.disconnect()
   }, [])
 
-  // ── Eventos globais de drag (mouse + touch via pointer events) ─────────────
+  // ── Drag global (pointer events) ──────────────────────────────────────────
   useEffect(() => {
     const onMove = (e) => {
       if (!dragging.current) return
-      const x = e.clientX
-      curDrag.current = x - startX.current
+      curDrag.current = e.clientX - startX.current
       setDrag(curDrag.current)
     }
     const onUp = () => {
@@ -76,8 +97,8 @@ export default function Mockups() {
       wasDrag.current = Math.abs(d) > 8
       curDrag.current = 0
       setDrag(0)
-      if (d < -50) setActive(p => Math.min(p + 1, N - 1))
-      else if (d > 50) setActive(p => Math.max(p - 1, 0))
+      if      (d < -50) setActive(p => Math.min(p + 1, N + 1)) // próximo (dir.)
+      else if (d >  50) setActive(p => Math.max(p - 1, 0))     // anterior (esq.)
       play()
     }
     window.addEventListener('pointermove', onMove)
@@ -86,7 +107,7 @@ export default function Mockups() {
       window.removeEventListener('pointermove', onMove)
       window.removeEventListener('pointerup',   onUp)
     }
-  }, [N, play])
+  }, [play])
 
   const onDown = (e) => {
     dragging.current = true
@@ -98,25 +119,28 @@ export default function Mockups() {
     clearInterval(timer.current)
   }
 
-  // ── Estilo de cada slide (escala + opacidade por distância do ativo) ───────
+  // ── Escala e opacidade por distância do ativo ─────────────────────────────
   const slideStyle = (i) => {
     const d = Math.abs(i - active)
     return {
-      width:       SW,
-      marginRight: GAP,
-      transform:  `scale(${d === 0 ? 1 : d === 1 ? 0.84 : 0.73})`,
-      opacity:     d === 0 ? 1 : d === 1 ? 0.68 : 0.45,
-      transition:  trans
+      width:           SW,
+      marginRight:     GAP,
+      transform:       `scale(${d === 0 ? 1 : d === 1 ? 0.84 : 0.73})`,
+      opacity:         d === 0 ? 1 : d === 1 ? 0.68 : 0.45,
+      transition:      trans
         ? 'transform 0.46s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.46s'
         : 'none',
       transformOrigin: 'center',
-      cursor: i === active ? 'default' : 'pointer',
+      cursor:          i === active ? 'default' : 'pointer',
     }
   }
 
-  const goTo = (i) => {
+  // Índice real (0..N-1) para acender o dot correto
+  const realIndex = ((active - 1) % N + N) % N
+
+  const goTo = (realIdx) => {
     setTrans(true)
-    setActive(i)
+    setActive(realIdx + 1) // índice real → índice ext
     play()
   }
 
@@ -141,21 +165,18 @@ export default function Mockups() {
             transition: trans ? 'transform 0.46s cubic-bezier(0.25,0.46,0.45,0.94)' : 'none',
           }}
         >
-          {screens.map((s, i) => (
+          {ext.map((s, i) => (
             <div
               key={i}
               className="mockups__slide"
               style={slideStyle(i)}
               onClick={() => {
                 if (wasDrag.current) { wasDrag.current = false; return }
-                if (i !== active) goTo(i)
+                if (i !== active) goTo((i - 1 + N) % N)
               }}
             >
-              {/* moldura de celular criada em CSS — estilo iPhone */}
               <div className="mockups__phone">
-                {/* dynamic island */}
                 <div className="mockups__island" />
-                {/* área da tela */}
                 <div className="mockups__screen">
                   <img
                     src={s.src}
@@ -164,7 +185,6 @@ export default function Mockups() {
                     draggable={false}
                   />
                 </div>
-                {/* barra home */}
                 <div className="mockups__home" />
               </div>
               <p className="mockups__label">{s.label}</p>
@@ -173,12 +193,12 @@ export default function Mockups() {
         </div>
       </div>
 
-      {/* ── Dots ── */}
+      {/* ── Dots (baseados no índice real) ── */}
       <div className="mockups__dots">
         {screens.map((_, i) => (
           <button
             key={i}
-            className={`mockups__dot${i === active ? ' mockups__dot--on' : ''}`}
+            className={`mockups__dot${i === realIndex ? ' mockups__dot--on' : ''}`}
             onClick={() => goTo(i)}
             aria-label={`Ir para tela ${i + 1}`}
           />
