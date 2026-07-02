@@ -26,61 +26,77 @@
 .provas__card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 16px 16px;
+  padding: 14px 14px 16px;
   box-shadow: var(--shadow-md);
-  text-align: center;
 }
 
+/* ── Foto quadrada 1:1 ── */
 .provas__photo-wrap {
   width: 100%;
-  aspect-ratio: 4/3;
-  background: #e8e0d5;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  margin-bottom: 26px; /* espaço para o selo que ultrapassa a borda inferior */
+}
+
+/* camada de clip da imagem, preenchendo o photo-wrap */
+.provas__photo-clip {
+  position: absolute;
+  inset: 0;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  margin-bottom: 12px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #e8e0d5;
 }
 
 .provas__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.provas__photo-ph {
-  font-size: 28px;
-  opacity: 0.30;
+/* ── Selo laranja com número grande + subtexto ── */
+.provas__seal {
   position: absolute;
-}
-
-.provas__cm {
-  display: inline-block;
+  bottom: -18px;
+  left: 10px;
   background: var(--orange);
   color: #fff;
-  font-size: 20px;
-  font-weight: 900;
-  padding: 3px 14px;
   border-radius: 50px;
-  margin-bottom: 10px;
-  box-shadow: 0 3px 10px rgba(243,112,33,0.28);
-  letter-spacing: -0.3px;
+  padding: 5px 14px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+  box-shadow: 0 4px 14px rgba(243,112,33,0.38);
 }
 
+.provas__seal-num {
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.provas__seal-sub {
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.88;
+  line-height: 1;
+}
+
+/* ── Texto e autor ── */
 .provas__texto {
   font-size: 14px;
   color: #444;
-  line-height: 1.6;
-  margin-bottom: 8px;
+  line-height: 1.65;
+  margin-bottom: 10px;
   font-style: italic;
 }
 
 .provas__autor {
   font-size: 13px;
   color: var(--gray-light);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .provas__footer {
@@ -90,12 +106,15 @@
   font-weight: 700;
 }
 
+/* ── Grid 3 colunas em telas maiores ── */
 @media (min-width: 620px) {
-  .provas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .provas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 }
 
 @media (min-width: 768px) {
-  .provas__title  { font-size: 21px; }
-  .provas__card   { padding: 18px; }
-  .provas__texto  { font-size: 15px; }
+  .provas__title    { font-size: 21px; }
+  .provas__card     { padding: 16px 16px 18px; }
+  .provas__texto    { font-size: 15px; }
+  .provas__seal-num { font-size: 21px; }
+  .provas__seal-sub { font-size: 11px; }
 }
