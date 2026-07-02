@@ -35,7 +35,7 @@ export default function Mockups() {
 
   const N  = screens.length
   // largura responsiva do slide: 41% da tela, entre 138 e 172 px
-  const SW = Math.min(Math.max(cW * 0.41, 138), 172)
+  const SW = Math.min(Math.max(cW * 0.47, 159), 198)
   // offset do track para centralizar o slide ativo
   const trackX = (cW - SW) / 2 - active * (SW + GAP) + drag
 
