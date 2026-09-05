@@ -14,7 +14,7 @@ export default function CtaFinal({ nome = '' }) {
 
         <div className="cta-final__price-block">
           <span className="cta-final__price">R$37,90</span>
-          <span className="cta-final__installment">ou 12x de R$3,79</span>
+          <span className="cta-final__installment">ou até 7x de R$ 6,31</span>
         </div>
 
         <CtaBtn label="🔓 COMEÇAR MEUS 21 DIAS AGORA →" />

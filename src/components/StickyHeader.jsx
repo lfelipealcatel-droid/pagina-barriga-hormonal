@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import './StickyHeader.css'
+import { buildCheckoutUrl } from '../lib/checkout'
 
 // ─── CONFIGURAÇÃO FÁCIL DE EDITAR ────────────────────────────────────────────
-const CHECKOUT_LINK = '#checkout'   // ← troque pelo link da Hotmart/Kiwify
+const CHECKOUT_LINK = 'https://lastlink.com/p/C3DDAD581/checkout-payment/'   // ← checkout Lastlink
 const TIMER_MINUTES = 9
 const TIMER_SECONDS = 32
 // ─────────────────────────────────────────────────────────────────────────────
@@ -25,7 +26,7 @@ export default function StickyHeader() {
         <span className="sticky-header__text">
           Seu acesso está reservado por <strong className="sticky-header__timer">[{mins}:{secs}]</strong>
         </span>
-        <a href={CHECKOUT_LINK} className="sticky-header__btn">
+        <a href={buildCheckoutUrl(CHECKOUT_LINK)} className="sticky-header__btn">
           LIBERAR MEU PLANO →
         </a>
       </div>

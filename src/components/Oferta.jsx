@@ -32,7 +32,7 @@ export default function Oferta() {
 
           <div className="oferta__price-block">
             <span className="oferta__price">R$37,90</span>
-            <span className="oferta__installment">ou 12x de R$3,79</span>
+            <span className="oferta__installment">ou até 7x de R$ 6,31</span>
           </div>
 
           <CtaBtn label="🔓 LIBERAR MEU PLANO POR R$37,90 →" />
