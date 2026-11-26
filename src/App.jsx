@@ -13,12 +13,23 @@ import Garantia      from './components/Garantia'
 import FAQ           from './components/FAQ'
 import CtaFinal      from './components/CtaFinal'
 
+// Perfil salvo pelo script inline do index.html (que remove nome/medidas da URL antes do Pixel)
+function lerPerfilSalvo() {
+  try {
+    const raw = sessionStorage.getItem('vittalle_perfil')
+    return raw ? JSON.parse(raw) || {} : {}
+  } catch {
+    return {}
+  }
+}
+
 export default function App() {
-  // Lê os parâmetros da URL uma única vez (não mudam durante a sessão)
+  // Lê primeiro do sessionStorage; se não houver, da URL
+  const perfil       = lerPerfilSalvo()
   const params       = new URLSearchParams(window.location.search)
-  const nome         = params.get('nome')?.trim() || ''
-  const cmMin        = params.get('cm_min')
-  const cmMax        = params.get('cm_max')
+  const nome         = (perfil.nome ?? params.get('nome'))?.trim() || ''
+  const cmMin        = perfil.cm_min ?? params.get('cm_min')
+  const cmMax        = perfil.cm_max ?? params.get('cm_max')
   const cmProjection =
     cmMin && cmMax && !isNaN(Number(cmMin)) && !isNaN(Number(cmMax))
       ? `${cmMin} a ${cmMax}`
